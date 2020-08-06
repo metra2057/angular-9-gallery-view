@@ -1,0 +1,49 @@
+<div class="gallery">
+  <div class="gallery__main">
+    <button
+      *ngIf="showControls"
+      (click)="prevItem()"
+      class="gallery__main-control --left">
+      <span class="control__chevron"></span>
+    </button>
+
+    <div #mainImageWrapper
+         (pointerdown)="pointerDown($event)"
+         class="gallery__main-view">
+      <img
+        src="{{ getMainItemUrl() }}"
+        draggable="false"
+        class="gallery__image"
+        alt="Main Item"
+      >
+
+      <img
+        *ngIf="isAttached()"
+        [@leaveHelper]="dynamicAnimationParams"
+        src="{{ getHelperSrc() }}"
+        [ngStyle]="getMovableItemStyles()"
+        class="gallery__image --helper"
+        draggable="false"
+      >
+    </div>
+
+    <button
+      *ngIf="showControls"
+      (click)="nextItem()"
+      class="gallery__main-control --right">
+      <span class="control__chevron"></span>
+    </button>
+  </div>
+
+  <div #listWrapper class="gallery-list-wrapper">
+    <app-gallery-list
+      *ngIf="list?.length"
+      [items]="list"
+      [defaultImage]="getMainItemUrl()"
+      [itemsState]="getListStyles()"
+      (emitItemClick)="onListItemClick($event)"
+    ></app-gallery-list>
+  </div>
+</div>
+
+

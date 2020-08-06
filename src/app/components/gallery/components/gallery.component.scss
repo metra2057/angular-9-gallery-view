@@ -1,0 +1,105 @@
+.gallery {
+  height: 100%;
+  user-select: none;
+  touch-action: none;
+
+  &__embed-video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+    background-color: #000;
+
+    ::ng-deep iframe {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__main {
+    height: 100%;
+    margin: 0 auto;
+    max-width: 88%;
+    padding: 0 40px;
+    align-items: center;
+    display: flex;
+
+    &-view {
+      display: flex;
+      align-items: center;
+      position: relative;
+      user-select: none;
+      overflow: hidden;
+      cursor: pointer;
+      margin: 0 24px;
+      height: 100%;
+      width: 100%;
+      &-loader {
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    &-control {
+      border: 0;
+      padding: 0;
+      width: 30px;
+      height: 56px;
+      display: block;
+      cursor: pointer;
+      min-width: 30px;
+      min-height: 56px;
+      background: none;
+      overflow: hidden;
+      position: relative;
+      transition: transform .3s linear;
+
+      &:hover {
+        transition: transform .3s linear;
+
+        &.--left {
+          transform: translateX(-4px);
+        }
+
+        &.--right {
+          transform: translateX(4px);
+        }
+      }
+
+      .control__chevron {
+        position: absolute;
+        display: block;
+        height: 56px;
+        width: 56px;
+        border: 0;
+        top: 0;
+      }
+
+      &.--left .control__chevron {
+        border-left: 2px solid #fff;
+        border-bottom: 2px solid #fff;
+        transform: rotate(45deg) scale(.7);
+        left: 0;
+      }
+
+      &.--right .control__chevron {
+        border-top: 2px solid #fff;
+        border-right: 2px solid #fff;
+        transform: rotate(45deg) scale(.7);
+        left: -92%;
+      }
+    }
+  }
+
+  &__image {
+    width: 100%;
+    max-width: 100%;
+    z-index: 1;
+    &.--helper {
+      position: absolute;
+      z-index: 2;
+    }
+  }
+}
