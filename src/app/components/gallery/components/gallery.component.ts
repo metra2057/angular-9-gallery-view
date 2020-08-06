@@ -197,11 +197,17 @@ export class GalleryComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private initList([...spread]: string []) {
     const mean = arrayMean<string>(spread);
-    return Object.assign([], [
-      ...spread.splice(spread.length - mean, spread.length),
-      this.getMainItemUrl(),
-      ...spread.splice(1, mean),
-    ]);
+    let sorted = spread;
+
+    if (!sorted.includes(this.getMainItemUrl())) {
+      sorted.splice(mean, 0, this.getMainItemUrl());
+    }
+
+    while (sorted[mean] !== this.getMainItemUrl()) {
+      sorted = shuffleArrayRight(sorted);
+    }
+
+    return sorted;
   }
 
   public get list(): string [] {
