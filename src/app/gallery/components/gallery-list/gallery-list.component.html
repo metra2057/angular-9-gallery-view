@@ -1,0 +1,7 @@
+<ul class="gallery__list">
+    <app-gallery-list-item
+      *ngFor="let image of images; let i = index; trackBy: trackByImageUrl"
+      [image]="image"
+      [imageConfig]="getImageConfig(image)"
+      (emitClick)="onListItemClick($event)"></app-gallery-list-item>
+</ul>

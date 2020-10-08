@@ -19,7 +19,7 @@
 
       <img
         *ngIf="isAttached()"
-        [@leaveHelper]="dynamicAnimationParams"
+        [@leaveDraggableHelper]="helperLeaveAnimationParams"
         src="{{ getHelperSrc() }}"
         [ngStyle]="getMovableItemStyles()"
         class="gallery__image --helper"
@@ -38,9 +38,9 @@
   <div #listWrapper class="gallery-list-wrapper">
     <app-gallery-list
       *ngIf="list?.length"
-      [items]="list"
+      [images]="sortedImages"
+      [imagesConfig]="list"
       [defaultImage]="getMainItemUrl()"
-      [itemsState]="getListStyles()"
       (emitItemClick)="onListItemClick($event)"
     ></app-gallery-list>
   </div>

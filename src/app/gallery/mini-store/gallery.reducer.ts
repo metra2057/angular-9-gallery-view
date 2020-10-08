@@ -25,8 +25,13 @@ export function galleryReducer(state, {type, payload}) {
     case GalleryActions.UPDATE_LIST_ITEMS_STYLES_STATE_ACTION:
       return {
         ...state,
-        list: {...state.list, ...payload}
+        list: {...state.list, ...payload},
       };
+    case GalleryActions.SWAP_LIST_ITEMS_ACTION:
+      return {
+        ...state,
+        listItems: {...state.listItems, ...payload}
+      }
     default:
       return {...state};
   }

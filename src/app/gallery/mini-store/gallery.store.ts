@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { IGalleryState } from '../gallery.models';
 import { galleryReducer } from './gallery.reducer';
+import { IGalleryState } from '../interfaces/gallery-state.interface';
 
 @Injectable()
 export class GalleryMiniStore {
@@ -22,8 +22,7 @@ export class GalleryMiniStore {
       src: null
     },
     list: {
-      styles: null,
-      list: null
+      list: null,
     }
   };
 

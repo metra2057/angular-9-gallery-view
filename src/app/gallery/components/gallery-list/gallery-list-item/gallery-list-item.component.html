@@ -1,0 +1,10 @@
+<li
+  (click)="onClick()"
+  [ngStyle]="imageConfig.cssStyles"
+  [ngClass]="imageConfig.cssClasses"
+  class="gallery__list-item">
+  <img
+    src="{{ image }}"
+    class="gallery__list-item-image"
+    alt="Screenshot">
+</li>

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subscription } from 'rxjs';
-import { IGalleryEvent } from '../gallery.models';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
+import { IGalleryEvent } from '../interfaces/gallery-event.interface';
 
 @Injectable()
 export class GalleryEventBusService {
